@@ -1,0 +1,427 @@
+# Quest 每日任务池（28 个 · 每日随机抽 settings.daily-count 个）
+# 奖励对齐主线同期水平（日常小活不比主线丰厚）；economy=金币+经验 / fallback=经验(多50%)
+daily-pool:
+  dz_small:
+    name: "&c清理僵尸"
+    description:
+      - "&7消灭 &c15 &7只僵尸"
+    icon: "ZOMBIE_HEAD"
+    type: kill
+    mob: ZOMBIE
+    amount: 15
+    rewards:
+      economy:
+        money: 30
+        exp: 5
+      fallback:
+        exp: 7
+
+  dz_hard:
+    name: "&c亡灵围城"
+    description:
+      - "&7消灭 &c40 &7只僵尸"
+    icon: "ZOMBIE_HEAD"
+    type: kill
+    mob: ZOMBIE
+    amount: 40
+    rewards:
+      economy:
+        money: 60
+        exp: 10
+      fallback:
+        exp: 15
+
+  kl_small:
+    name: "&c骷髅清扫"
+    description:
+      - "&7消灭 &c15 &7只骷髅"
+    icon: "BONE"
+    type: kill
+    mob: SKELETON
+    amount: 15
+    rewards:
+      economy:
+        money: 30
+        exp: 5
+      fallback:
+        exp: 7
+
+  kl_hard:
+    name: "&c白骨将军"
+    description:
+      - "&7消灭 &c35 &7只骷髅"
+    icon: "BONE"
+    type: kill
+    mob: SKELETON
+    amount: 35
+    rewards:
+      economy:
+        money: 60
+        exp: 10
+      fallback:
+        exp: 15
+
+  kp_small:
+    name: "&c苦力怕出没"
+    description:
+      - "&7消灭 &c10 &7只苦力怕"
+    icon: "GUNPOWDER"
+    type: kill
+    mob: CREEPER
+    amount: 10
+    rewards:
+      economy:
+        money: 40
+        exp: 8
+      fallback:
+        exp: 12
+
+  kp_hard:
+    name: "&c爆破专家"
+    description:
+      - "&7消灭 &c20 &7只苦力怕"
+    icon: "GUNPOWDER"
+    type: kill
+    mob: CREEPER
+    amount: 20
+    rewards:
+      economy:
+        money: 70
+        exp: 12
+      fallback:
+        exp: 18
+
+  zh_small:
+    name: "&c蛛网清理"
+    description:
+      - "&7消灭 &c15 &7只蜘蛛"
+    icon: "STRING"
+    type: kill
+    mob: SPIDER
+    amount: 15
+    rewards:
+      economy:
+        money: 30
+        exp: 5
+      fallback:
+        exp: 7
+
+  zs_small:
+    name: "&c女巫猎杀"
+    description:
+      - "&7消灭 &c5 &7只女巫"
+    icon: "GLASS_BOTTLE"
+    type: kill
+    mob: WITCH
+    amount: 5
+    rewards:
+      economy:
+        money: 50
+        exp: 10
+      fallback:
+        exp: 15
+
+  xl_small:
+    name: "&c小型刷怪日"
+    description:
+      - "&7消灭 &c20 &7只史莱姆"
+    icon: "SLIME_BALL"
+    type: kill
+    mob: SLIME
+    amount: 20
+    rewards:
+      economy:
+        money: 30
+        exp: 5
+      fallback:
+        exp: 7
+
+  dy_small:
+    name: "&c地狱来客"
+    description:
+      - "&7消灭 &c20 &7只僵尸猪灵"
+    icon: "GOLDEN_SWORD"
+    type: kill
+    mob: ZOMBIFIED_PIGLIN
+    amount: 20
+    rewards:
+      economy:
+        money: 55
+        exp: 10
+      fallback:
+        exp: 15
+
+  tl_small:
+    name: "&c凋灵骷髅讨伐"
+    description:
+      - "&7消灭 &c8 &7只凋灵骷髅"
+    icon: "BONE"
+    type: kill
+    mob: WITHER_SKELETON
+    amount: 8
+    rewards:
+      economy:
+        money: 70
+        exp: 12
+      fallback:
+        exp: 18
+
+  md_small:
+    name: "&c末影追猎"
+    description:
+      - "&7消灭 &c10 &7只末影人"
+    icon: "ENDER_PEARL"
+    type: kill
+    mob: ENDERMAN
+    amount: 10
+    rewards:
+      economy:
+        money: 65
+        exp: 12
+      fallback:
+        exp: 18
+
+  tk_stone:
+    name: "&7碎石日常"
+    description:
+      - "&7采集 &f64 &7个石头"
+    icon: "STONE"
+    type: mine
+    block: STONE
+    amount: 64
+    rewards:
+      economy:
+        money: 25
+        exp: 3
+      fallback:
+        exp: 4
+
+  tk_coal:
+    name: "&7采煤小队"
+    description:
+      - "&7采集 &f32 &7个煤矿"
+    icon: "COAL_ORE"
+    type: mine
+    block: COAL_ORE
+    amount: 32
+    rewards:
+      economy:
+        money: 30
+        exp: 5
+      fallback:
+        exp: 7
+
+  tk_iron:
+    name: "&7铁矿补给"
+    description:
+      - "&7采集 &f24 &7个铁矿石"
+    icon: "IRON_ORE"
+    type: mine
+    block: IRON_ORE
+    amount: 24
+    rewards:
+      economy:
+        money: 40
+        exp: 6
+      fallback:
+        exp: 9
+
+  tk_gold:
+    name: "&7淘金日常"
+    description:
+      - "&7采集 &f16 &7个金矿石"
+    icon: "GOLD_ORE"
+    type: mine
+    block: GOLD_ORE
+    amount: 16
+    rewards:
+      economy:
+        money: 50
+        exp: 8
+      fallback:
+        exp: 12
+
+  tk_redstone:
+    name: "&7红石采购"
+    description:
+      - "&7采集 &f24 &7个红石矿石"
+    icon: "REDSTONE"
+    type: mine
+    block: REDSTONE_ORE
+    amount: 24
+    rewards:
+      economy:
+        money: 40
+        exp: 6
+      fallback:
+        exp: 9
+
+  tk_lapis:
+    name: "&7青金石收集"
+    description:
+      - "&7采集 &f16 &7个青金石矿石"
+    icon: "LAPIS_LAZULI"
+    type: mine
+    block: LAPIS_ORE
+    amount: 16
+    rewards:
+      economy:
+        money: 45
+        exp: 7
+      fallback:
+        exp: 10
+
+  tk_diamond:
+    name: "&7钻石挖掘"
+    description:
+      - "&7采集 &f8 &7个钻石"
+    icon: "DIAMOND"
+    type: mine
+    block: DIAMOND_ORE
+    amount: 8
+    rewards:
+      economy:
+        money: 70
+        exp: 12
+      fallback:
+        exp: 18
+
+  tk_log:
+    name: "&7伐木日常"
+    description:
+      - "&7采集 &f32 &7个橡木原木"
+    icon: "OAK_LOG"
+    type: mine
+    block: OAK_LOG
+    amount: 32
+    rewards:
+      economy:
+        money: 25
+        exp: 4
+      fallback:
+        exp: 6
+
+  tk_wheat:
+    name: "&7麦田巡逻"
+    description:
+      - "&7采集 &f32 &7个小麦"
+    icon: "WHEAT"
+    type: mine
+    block: WHEAT
+    amount: 32
+    rewards:
+      economy:
+        money: 25
+        exp: 4
+      fallback:
+        exp: 6
+
+  tk_carrot:
+    name: "&7胡萝卜丰收"
+    description:
+      - "&7采集 &f24 &7个胡萝卜"
+    icon: "CARROT"
+    type: mine
+    block: CARROTS
+    amount: 24
+    rewards:
+      economy:
+        money: 25
+        exp: 4
+      fallback:
+        exp: 6
+
+  tk_potato:
+    name: "&7土豆丰收"
+    description:
+      - "&7采集 &f24 &7个马铃薯"
+    icon: "POTATO"
+    type: mine
+    block: POTATOES
+    amount: 24
+    rewards:
+      economy:
+        money: 25
+        exp: 4
+      fallback:
+        exp: 6
+
+  tk_pumpkin:
+    name: "&7南瓜收获"
+    description:
+      - "&7采集 &f12 &7个南瓜"
+    icon: "PUMPKIN"
+    type: mine
+    block: PUMPKIN
+    amount: 12
+    rewards:
+      economy:
+        money: 35
+        exp: 5
+      fallback:
+        exp: 7
+
+  reach_spawn:
+    name: "&e回到出生点"
+    description:
+      - "&7抵达世界出生点"
+    icon: "COMPASS"
+    type: reach
+    use-spawn: true
+    world: world
+    radius: 20
+    rewards:
+      economy:
+        money: 20
+        exp: 3
+      fallback:
+        exp: 5
+
+  reach_desert_daily:
+    name: "&e远足沙漠"
+    description:
+      - "&7抵达沙漠（x1500,30格内）"
+    icon: "SAND"
+    type: reach
+    location:
+      world: world
+      x: 1500
+      y: 80
+      z: 0
+    radius: 20
+    rewards:
+      economy:
+        money: 20
+        exp: 3
+      fallback:
+        exp: 5
+
+  hm_hard:
+    name: "&c烈焰狩猎"
+    description:
+      - "&7消灭 &c10 &7只烈焰人"
+    icon: "BLAZE_ROD"
+    type: kill
+    mob: BLAZE
+    amount: 10
+    rewards:
+      economy:
+        money: 75
+        exp: 14
+      fallback:
+        exp: 21
+
+  tk_ender_pearl_daily:
+    name: "&e末影珍珠日"
+    description:
+      - "&7消灭 &c12 &7只末影人"
+    icon: "ENDER_EYE"
+    type: kill
+    mob: ENDERMAN
+    amount: 12
+    rewards:
+      economy:
+        money: 60
+        exp: 10
+      fallback:
+        exp: 15
