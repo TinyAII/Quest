@@ -1,0 +1,176 @@
+# Quest 任务定义 · 主线第三章（续）
+# ⚠️ 第三章段落文件，部署时追加到主 quests.yml 的 chain: 段之后
+# 第三章「钻光初现」（10 环）
+# 定位：钻石前夕（铁矿毕业 → 攒钻石造第一件钻装）
+# 金币 45（=第二章30×1.5）；点券 0（留第四章终章首登场）
+# ⚠️ 物品修正（老板指出）：不发任何钻石成品装备（超时代+剥夺合成成就感）
+#    → 改发：附魔铁剑/弓/金苹果/附魔书x2 + 散钻4颗（帮凑第一件，造什么玩家自己定）
+# 硬仗怪：女巫/洞穴蜘蛛/凋灵骷髅（钻石前夕战力）
+
+chain3:
+  witch_hunt:
+    name: "&5女巫猎人"
+    description:
+      - "&7消灭 &d8 &7只女巫"
+    icon: "GLASS_BOTTLE"
+    type: kill
+    mob: WITCH
+    amount: 8
+    rewards:
+      economy:
+        exp: 15
+      fallback:
+        exp: 22
+    next: deep_diamonds
+  deep_diamonds:
+    name: "&5钻光初现"
+    description:
+      - "&7采集 &b8 &7颗钻石"
+    icon: "DIAMOND"
+    type: mine
+    block: DIAMOND_ORE
+    amount: 8
+    rewards:
+      economy:
+        exp: 18
+        items:
+          - material: DIAMOND
+            amount: 2
+      fallback:
+        exp: 28
+        items:
+          - material: DIAMOND
+            amount: 2
+    next: redstone_engineer
+  redstone_engineer:
+    name: "&5红石工程师"
+    description:
+      - "&7采集 &b32 &7个红石粉矿石"
+    icon: "REDSTONE"
+    type: mine
+    block: REDSTONE_ORE
+    amount: 32
+    rewards:
+      economy:
+        exp: 15
+      fallback:
+        exp: 22
+    next: skeleton_archer
+  skeleton_archer:
+    name: "&5弓手对决"
+    description:
+      - "&7消灭 &d20 &7只骷髅"
+    icon: "ARROW"
+    type: kill
+    mob: SKELETON
+    amount: 20
+    rewards:
+      economy:
+        exp: 16
+        items:
+          - material: BOW
+            amount: 1
+      fallback:
+        exp: 25
+        items:
+          - material: BOW
+            amount: 1
+    next: obsidian_gate
+  obsidian_gate:
+    name: "&5黑曜之门"
+    description:
+      - "&7采集 &b8 &7块黑曜石"
+    icon: "OBSIDIAN"
+    type: mine
+    block: OBSIDIAN
+    amount: 8
+    rewards:
+      economy:
+        exp: 16
+      fallback:
+        exp: 25
+    next: lava_swimmer
+  lava_swimmer:
+    name: "&5岩浆泳者"
+    description:
+      - "&7采集 &b16 &7个金矿石（做金苹果抗火）"
+    icon: "GOLD_INGOT"
+    type: mine
+    block: GOLD_ORE
+    amount: 16
+    rewards:
+      economy:
+        exp: 15
+      fallback:
+        exp: 25
+    next: spider_raid
+  spider_raid:
+    name: "&5蛛巢突袭"
+    description:
+      - "&7消灭 &d20 &7只洞穴蜘蛛"
+    icon: "STRING"
+    type: kill
+    mob: CAVE_SPIDER
+    amount: 20
+    rewards:
+      economy:
+        exp: 16
+      fallback:
+        exp: 25
+    next: diamond_hoarder
+  diamond_hoarder:
+    name: "&5钻石收藏家"
+    description:
+      - "&7累计采集 &b16 &7颗钻石"
+    icon: "DIAMOND_BLOCK"
+    type: mine
+    block: DIAMOND_ORE
+    amount: 16
+    rewards:
+      economy:
+        exp: 18
+        items:
+          - material: DIAMOND
+            amount: 2
+      fallback:
+        exp: 28
+        items:
+          - material: DIAMOND
+            amount: 2
+    next: wither_skeleton_scout
+  wither_skeleton_scout:
+    name: "&c凋灵斥候"
+    description:
+      - "&7消灭 &c10 &7只凋灵骷髅（下界初探）"
+    icon: "BONE"
+    type: kill
+    mob: WITHER_SKELETON
+    amount: 10
+    rewards:
+      economy:
+        money: 25
+        exp: 20
+      fallback:
+        exp: 30
+    next: nether_guardian
+  nether_guardian:
+    name: "&c下界守卫"
+    description:
+      - "&7消灭 &c25 &7只下界怪物（野猪兽/僵尸猪灵）"
+    icon: "GOLDEN_SWORD"
+    type: kill
+    mob: ZOMBIFIED_PIGLIN
+    amount: 25
+    rewards:
+      economy:
+        money: 20
+        exp: 22
+        items:
+          - material: GOLDEN_APPLE
+            amount: 2
+      fallback:
+        exp: 35
+        items:
+          - material: GOLDEN_APPLE
+            amount: 2
+    next: ""
