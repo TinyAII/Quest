@@ -1,0 +1,22 @@
+name: Quest
+version: 1.1.0
+main: nl.tinyaii.quest.QuestPlugin
+api-version: 1.16
+author: TinyAII
+description: 任务系统 - 杀怪/采集/到达 + 每日任务板 + 主线任务链 + Economy奖励联动
+website: https://github.com/TinyAII
+softdepend: [Economy]
+
+commands:
+  任务:
+    description: 任务系统主命令（别名 /quest）
+    usage: /任务 [领取|进度|完成|自动领取]
+    aliases: [quest]
+
+permissions:
+  quest.use:
+    description: 领取/查看任务
+    default: true
+  quest.admin:
+    description: 管理命令（刷新/重置/重载）
+    default: op
