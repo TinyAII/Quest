@@ -1,0 +1,29 @@
+# Quest 任务系统 配置
+settings:
+  # 每日任务板：每天随机抽取的任务数量
+  daily-count: 3
+  # 进度侧边栏开关（实时显示进行中任务进度）
+  sidebar-enabled: true
+  # 任务自动完成模式（true=达成目标立即结算；false=需 /任务 完成 提交）
+  auto-complete: true
+
+messages:
+  prefix: "&7[&b任务&7] &r"
+  no-permission: "&c你没有权限这么做。"
+  quest-not-found: "&c任务 &e{quest} &c不存在。"
+  quest-started: "&a已领取任务：&e{quest}&a！"
+  quest-already-active: "&c该任务已在进行中。"
+  daily-refreshed: "&a每日任务已更新，共 &e{count} &a个。"
+  quest-progress: "&7[{quest}] &f{current}&7/&f{target}"
+  quest-completed: "&a任务完成！&e{quest} &a奖励已发放：&f{reward}"
+  quest-claim-not-ready: "&c任务还未完成（当前 {current}/{target}）。"
+  quest-chain-locked: "&c任务未解锁，请先完成前置任务。"
+  quest-chain-unlocked: "&d新任务解锁：&e{quest}&d！"
+  no-active-quests: "&c当前没有进行中的任务，输入 /任务 查看。"
+  reset-player: "&a已清空 &e{player} &a的任务进度。"
+  reloaded: "&a配置已重载。"
+  quest-not-active: "&c任务 &e{quest} &c不在进行中。"
+  not-picked-today: "&c该任务不在今日任务列表中（每天随机 3 个）。"
+  quest-already-completed: "&c该任务已完成。"
+  daily-not-available: "&c今日任务尚未刷新，请等待或联系管理员。"
+  quest-completed-hint: "&a任务 &e{quest} &a已达成！输入 &2/任务 完成 &a领取奖励。"
