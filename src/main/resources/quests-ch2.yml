@@ -1,0 +1,194 @@
+# Quest 任务定义 · 主线第二章（续）
+# ⚠️ 本文件是 quests.yml 的第二章段落，部署时追加到主 quests.yml 的 chain: 段之后
+# 第二章「铁与火」（10 环）
+# 定位：装备升级过渡（铁器时代）。金币节奏延续——仅末2环各 15（合计30），经验 8~15，物品=铁质装备+附魔书
+
+chain2:
+  army_of_undead:
+    name: "&6亡灵军团"
+    description:
+      - "&7消灭 &c25 &7只僵尸（它们变强了）"
+    icon: "ROTTEN_FLESH"
+    type: kill
+    mob: ZOMBIE
+    amount: 25
+    rewards:
+      economy:
+        exp: 10
+      fallback:
+        exp: 15
+    next: deep_mining
+  deep_mining:
+    name: "&6深入矿脉"
+    description:
+      - "&7采集 &b24 &7个铁矿石"
+    icon: "IRON_INGOT"
+    type: mine
+    block: IRON_ORE
+    amount: 24
+    rewards:
+      economy:
+        exp: 12
+        items:
+          - material: IRON_CHESTPLATE
+            amount: 1
+      fallback:
+        exp: 18
+        items:
+          - material: IRON_CHESTPLATE
+            amount: 1
+    next: bone_collector
+  bone_collector:
+    name: "&6白骨收藏家"
+    description:
+      - "&7消灭 &b20 &7只骷髅"
+    icon: "BOW"
+    type: kill
+    mob: SKELETON
+    amount: 20
+    rewards:
+      economy:
+        exp: 12
+        items:
+          - material: IRON_LEGGINGS
+            amount: 1
+      fallback:
+        exp: 18
+        items:
+          - material: IRON_LEGGINGS
+            amount: 1
+    next: coal_forge
+  coal_forge:
+    name: "&6锻造燃料"
+    description:
+      - "&7采集 &b48 &7个煤矿"
+    icon: "COAL"
+    type: mine
+    block: COAL_ORE
+    amount: 48
+    rewards:
+      economy:
+        exp: 10
+        items:
+          - material: IRON_BOOTS
+            amount: 1
+      fallback:
+        exp: 15
+        items:
+          - material: IRON_BOOTS
+            amount: 1
+    next: reach_desert
+  reach_desert:
+    name: "&6远行沙漠"
+    description:
+      - "&7抵达沙漠群系（坐标自定，示例用出生点1000格外）"
+    icon: "SAND"
+    type: reach
+    location:
+      world: world
+      x: 1500
+      y: 80
+      z: 0
+      radius: 30
+    rewards:
+      economy:
+        exp: 10
+      fallback:
+        exp: 15
+    next: archer_way
+  archer_way:
+    name: "&6弓手之道"
+    description:
+      - "&7用弓箭消灭 &b15 &7只骷髅"
+    icon: "ARROW"
+    type: kill
+    mob: SKELETON
+    amount: 15
+    rewards:
+      economy:
+        exp: 12
+        items:
+          - material: IRON_HELMET
+            amount: 1
+      fallback:
+        exp: 18
+        items:
+          - material: IRON_HELMET
+            amount: 1
+    next: gold_rush
+  gold_rush:
+    name: "&6淘金热"
+    description:
+      - "&7采集 &b16 &7个金矿石"
+    icon: "GOLD_ORE"
+    type: mine
+    block: GOLD_ORE
+    amount: 16
+    rewards:
+      economy:
+        exp: 14
+      fallback:
+        exp: 20
+    next: creeper_hunter
+  creeper_hunter:
+    name: "&6苦力怕猎人"
+    description:
+      - "&7消灭 &c20 &7只苦力怕"
+    icon: "GUNPOWDER"
+    type: kill
+    mob: CREEPER
+    amount: 20
+    rewards:
+      economy:
+        money: 15
+        exp: 15
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 1
+      fallback:
+        exp: 22
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 1
+    next: full_iron
+  full_iron:
+    name: "&6铁装齐全"
+    description:
+      - "&7采集 &b24 &7个铁矿石（补齐装备）"
+    icon: "ANVIL"
+    type: mine
+    block: IRON_ORE
+    amount: 24
+    rewards:
+      economy:
+        exp: 15
+        items:
+          - material: IRON_SWORD
+            amount: 1
+      fallback:
+        exp: 22
+        items:
+          - material: IRON_SWORD
+            amount: 1
+    next: guardian_night
+  guardian_night:
+    name: "&6暗夜守卫"
+    description:
+      - "&7消灭 &c30 &7只任意怪物，证明实力"
+    icon: "SHIELD"
+    type: kill
+    mob: ZOMBIE
+    amount: 30
+    rewards:
+      economy:
+        money: 15
+        exp: 18
+        items:
+          - material: GOLDEN_APPLE
+            amount: 2
+      fallback:
+        exp: 28
+        items:
+          - material: GOLDEN_APPLE
+            amount: 2
+    next: ""
