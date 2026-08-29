@@ -1,0 +1,186 @@
+# Quest 任务定义 · 主线第五章（终章）
+# ⚠️ 第五章段落文件，部署时追加到主 quests.yml 的 chain: 段之后
+# 第五章「终局之战」（10 环）—— 勇者成长之路收官
+# 金币 80（=第四章60×1.33）；点券 4（终章收官发满，点券生态大招）
+# 物品主题：不死图腾、附魔金苹果、附魔钻剑全套
+# ★ 毕业纪念（全任务链唯一一次）：#10 收官环奖励 下界合金剑·锋利2
+# 硬仗怪：末影龙前哨（末影螨/潜影贝类比用原版怪替代）、凋灵骷髅大军、远古守卫者
+
+chain5:
+  final_assembly:
+    name: "&d终局集结"
+    description:
+      - "&7消灭 &c40 &7只骷髅（最后的练兵）"
+    icon: "ARROW"
+    type: kill
+    mob: SKELETON
+    amount: 40
+    rewards:
+      economy:
+        exp: 28
+      fallback:
+        exp: 42
+    next: wither_army
+  wither_army:
+    name: "&d凋灵大军"
+    description:
+      - "&7消灭 &c20 &7只凋灵骷髅"
+    icon: "WITHER_SKELETON_SKULL"
+    type: kill
+    mob: WITHER_SKELETON
+    amount: 20
+    rewards:
+      economy:
+        exp: 28
+      fallback:
+        exp: 42
+    next: guardian_of_deep
+  guardian_of_deep:
+    name: "&d深海守卫者"
+    description:
+      - "&7消灭 &c10 &7只守卫者"
+    icon: "PRISMARINE_SHARD"
+    type: kill
+    mob: GUARDIAN
+    amount: 10
+    rewards:
+      economy:
+        exp: 30
+      fallback:
+        exp: 45
+    next: elder_guardian
+  elder_guardian:
+    name: "&d远古守卫者"
+    description:
+      - "&7消灭 &c3 &7只远古守卫者（海底神殿精英）"
+    icon: "SPONGE"
+    type: kill
+    mob: ELDER_GUARDIAN
+    amount: 3
+    rewards:
+      economy:
+        exp: 32
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 2
+      fallback:
+        exp: 48
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 2
+    next: totem_of_undying
+  totem_of_undying:
+    name: "&d不死图腾"
+    description:
+      - "&7消灭 &c20 &7只恶魂（下界空战换取图腾）"
+    icon: "TOTEM_OF_UNDYING"
+    type: kill
+    mob: GHAST
+    amount: 20
+    rewards:
+      economy:
+        exp: 30
+        items:
+          - material: TOTEM_OF_UNDYING
+            amount: 1
+      fallback:
+        exp: 45
+        items:
+          - material: TOTEM_OF_UNDYING
+            amount: 1
+    next: nether_fortress
+  nether_fortress:
+    name: "&c下界要塞"
+    description:
+      - "&7消灭 &c30 &7只下界怪物（要塞深处）"
+    icon: "NETHER_BRICK"
+    type: kill
+    mob: ZOMBIFIED_PIGLIN
+    amount: 30
+    rewards:
+      economy:
+        money: 25
+        exp: 32
+      fallback:
+        exp: 48
+    next: ancient_debris_hunt
+  ancient_debris_hunt:
+    name: "&d远古残骸"
+    description:
+      - "&7累计采集 &b8 &7块远古残骸（亲手打造终局装备）"
+    icon: "ANCIENT_DEBRIS"
+    type: mine
+    block: ANCIENT_DEBRIS
+    amount: 8
+    rewards:
+      economy:
+        exp: 35
+      fallback:
+        exp: 52
+    next: ender_dragon_prep
+  ender_dragon_prep:
+    name: "&d龙之准备"
+    description:
+      - "&7消灭 &c25 &7只末影人（收集末影珍珠）"
+    icon: "ENDER_EYE"
+    type: kill
+    mob: ENDERMAN
+    amount: 25
+    rewards:
+      economy:
+        exp: 34
+        items:
+          - material: GOLDEN_APPLE
+            amount: 3
+      fallback:
+        exp: 50
+        items:
+          - material: GOLDEN_APPLE
+            amount: 3
+    next: last_stand
+  last_stand:
+    name: "&c最后一战·前夜"
+    description:
+      - "&7消灭 &c50 &7只任意怪物（决战前整军）"
+    icon: "DIAMOND_SWORD"
+    type: kill
+    mob: ZOMBIE
+    amount: 50
+    rewards:
+      economy:
+        money: 25
+        exp: 36
+      fallback:
+        exp: 55
+    next: epic_finale
+  epic_finale:
+    name: "&6&l勇者的加冕"
+    description:
+      - "&7消灭 &c40 &7只凋灵骷髅"
+      - "&d完成整条「勇者成长之路」主线任务链"
+    icon: "NETHERITE_SWORD"
+    type: kill
+    mob: WITHER_SKELETON
+    amount: 40
+    rewards:
+      economy:
+        money: 30
+        points: 4
+        exp: 40
+        items:
+          - material: TOTEM_OF_UNDYING
+            amount: 1
+          - material: ENCHANTED_GOLDEN_APPLE
+            amount: 1
+        commands:
+          - "give {player} minecraft:netherite_sword 1 0 {Enchantments:[{id:minecraft:sharpness,lvl:2}]}"
+      fallback:
+        exp: 60
+        items:
+          - material: TOTEM_OF_UNDYING
+            amount: 1
+          - material: ENCHANTED_GOLDEN_APPLE
+            amount: 1
+        commands:
+          - "give {player} minecraft:netherite_sword 1 0 {Enchantments:[{id:minecraft:sharpness,lvl:2}]}"
+    next: ""
