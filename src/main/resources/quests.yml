@@ -1,0 +1,913 @@
+# Quest 任务定义 · 勇者成长之路（全五章主线 50 环 完整版）
+# type: kill=杀怪 / mine=采集 / reach=到达（use-spawn=世界出生点 或 location=显式坐标）
+# 双奖励模式：
+#   economy  = 装了 TinyAII Economy 时发放（金币+点券+经验(少)+物品）
+#   fallback = 没装 Economy 时发放（经验+物品）
+#   commands = 双模式都执行（{player} 占位）
+#
+# 每日任务池已拆分到独立文件 daily-pool.yml（28 个大池）
+#
+# ============================================================
+# 五章平衡总账（详见 QUEST-BALANCE.md）
+# 一章 金币20 牛皮套 | 二章 金币30 铁套 | 三章 金币45 散钻4
+# 四章 金币60+券2 钻石头盔+盾 | 五章 金币80+券4 图腾+合金剑锋利2(唯一)
+# ============================================================
+
+# ============================================================
+# 主线任务链「勇者成长之路」· 五章 50 环
+# ============================================================
+chain:
+  # ========== 第一章「初入世界」（金币20 · 牛皮套） ==========
+  first_meal:
+    name: "&b第一餐"
+    description:
+      - "&7消灭 &b10 &7只僵尸，填饱肚子再说"
+    icon: "COOKED_BEEF"
+    type: kill
+    mob: ZOMBIE
+    amount: 10
+    rewards:
+      economy:
+        exp: 6
+      fallback:
+        exp: 10
+    next: grow_crops
+  grow_crops:
+    name: "&b自食其力"
+    description:
+      - "&7采集 &b12 &7个小麦"
+    icon: "WHEAT"
+    type: mine
+    block: WHEAT
+    amount: 12
+    rewards:
+      economy:
+        exp: 5
+      fallback:
+        exp: 8
+    next: hunt_cows
+  hunt_cows:
+    name: "&b牛皮手套"
+    description:
+      - "&7消灭 &b15 &7只牛，收集皮革"
+    icon: "LEATHER"
+    type: kill
+    mob: COW
+    amount: 15
+    rewards:
+      economy:
+        exp: 8
+        items:
+          - material: LEATHER_HELMET
+            amount: 1
+      fallback:
+        exp: 12
+        items:
+          - material: LEATHER_HELMET
+            amount: 1
+    next: iron_learner
+  iron_learner:
+    name: "&b铁匠学徒"
+    description:
+      - "&7采集 &b10 &7个铁矿石"
+    icon: "IRON_ORE"
+    type: mine
+    block: IRON_ORE
+    amount: 10
+    rewards:
+      economy:
+        exp: 8
+        items:
+          - material: LEATHER_CHESTPLATE
+            amount: 1
+      fallback:
+        exp: 12
+        items:
+          - material: LEATHER_CHESTPLATE
+            amount: 1
+    next: web_climber
+  web_climber:
+    name: "&b蛛网缠身"
+    description:
+      - "&7消灭 &b10 &7只蜘蛛"
+    icon: "SPIDER_EYE"
+    type: kill
+    mob: SPIDER
+    amount: 10
+    rewards:
+      economy:
+        exp: 8
+        items:
+          - material: LEATHER_LEGGINGS
+            amount: 1
+      fallback:
+        exp: 12
+        items:
+          - material: LEATHER_LEGGINGS
+            amount: 1
+    next: reach_square
+  reach_square:
+    name: "&b回到出生点"
+    description:
+      - "&7抵达世界出生点"
+    icon: "COMPASS"
+    type: reach
+    use-spawn: true
+    world: world
+    radius: 20
+    rewards:
+      economy:
+        exp: 5
+        items:
+          - material: COMPASS
+            amount: 1
+      fallback:
+        exp: 8
+        items:
+          - material: COMPASS
+            amount: 1
+    next: sugar_harvest
+  sugar_harvest:
+    name: "&b甜蔗采集"
+    description:
+      - "&7采集 &b10 &7个甘蔗"
+    icon: "SUGAR_CANE"
+    type: mine
+    block: SUGAR_CANE
+    amount: 10
+    rewards:
+      economy:
+        exp: 5
+      fallback:
+        exp: 8
+    next: stone_worker
+  stone_worker:
+    name: "&b碎石工艺"
+    description:
+      - "&7采集 &b32 &7块石头"
+    icon: "STONE"
+    type: mine
+    block: STONE
+    amount: 32
+    rewards:
+      economy:
+        exp: 8
+        items:
+          - material: LEATHER_BOOTS
+            amount: 1
+      fallback:
+        exp: 12
+        items:
+          - material: LEATHER_BOOTS
+            amount: 1
+    next: sweet_apple
+  sweet_apple:
+    name: "&c战地补给"
+    description:
+      - "&7消灭 &c12 &7只苦力怕，这可是硬仗"
+    icon: "GOLDEN_APPLE"
+    type: kill
+    mob: CREEPER
+    amount: 12
+    rewards:
+      economy:
+        money: 10
+        exp: 10
+        items:
+          - material: GOLDEN_APPLE
+            amount: 1
+      fallback:
+        exp: 15
+        items:
+          - material: GOLDEN_APPLE
+            amount: 1
+    next: night_sentinel
+  night_sentinel:
+    name: "&c守夜人"
+    description:
+      - "&7消灭 &c20 &7只僵尸，守护夜色"
+    icon: "HONEY_BOTTLE"
+    type: kill
+    mob: ZOMBIE
+    amount: 20
+    rewards:
+      economy:
+        money: 10
+        exp: 12
+        items:
+          - material: HONEY_BOTTLE
+            amount: 2
+      fallback:
+        exp: 18
+        items:
+          - material: HONEY_BOTTLE
+            amount: 2
+    next: army_of_undead
+  # ========== 第二章「铁与火」（金币30 · 铁套） ==========
+  army_of_undead:
+    name: "&6亡灵军团"
+    description:
+      - "&7消灭 &c25 &7只僵尸（它们变强了）"
+    icon: "ROTTEN_FLESH"
+    type: kill
+    mob: ZOMBIE
+    amount: 25
+    rewards:
+      economy:
+        exp: 10
+      fallback:
+        exp: 15
+    next: deep_mining
+  deep_mining:
+    name: "&6深入矿脉"
+    description:
+      - "&7采集 &b24 &7个铁矿石"
+    icon: "IRON_INGOT"
+    type: mine
+    block: IRON_ORE
+    amount: 24
+    rewards:
+      economy:
+        exp: 12
+        items:
+          - material: IRON_CHESTPLATE
+            amount: 1
+      fallback:
+        exp: 18
+        items:
+          - material: IRON_CHESTPLATE
+            amount: 1
+    next: bone_collector
+  bone_collector:
+    name: "&6白骨收藏家"
+    description:
+      - "&7消灭 &b20 &7只骷髅"
+    icon: "BOW"
+    type: kill
+    mob: SKELETON
+    amount: 20
+    rewards:
+      economy:
+        exp: 12
+        items:
+          - material: IRON_LEGGINGS
+            amount: 1
+      fallback:
+        exp: 18
+        items:
+          - material: IRON_LEGGINGS
+            amount: 1
+    next: coal_forge
+  coal_forge:
+    name: "&6锻造燃料"
+    description:
+      - "&7采集 &b48 &7个煤矿"
+    icon: "COAL"
+    type: mine
+    block: COAL_ORE
+    amount: 48
+    rewards:
+      economy:
+        exp: 10
+        items:
+          - material: IRON_BOOTS
+            amount: 1
+      fallback:
+        exp: 15
+        items:
+          - material: IRON_BOOTS
+            amount: 1
+    next: reach_desert
+  reach_desert:
+    name: "&6远行沙漠"
+    description:
+      - "&7抵达沙漠（x1500 方圆30格）"
+    icon: "SAND"
+    type: reach
+    location:
+      world: world
+      x: 1500
+      y: 80
+      z: 0
+      radius: 30
+    rewards:
+      economy:
+        exp: 10
+      fallback:
+        exp: 15
+    next: archer_way
+  archer_way:
+    name: "&6弓手之道"
+    description:
+      - "&7消灭 &b15 &7只骷髅"
+    icon: "ARROW"
+    type: kill
+    mob: SKELETON
+    amount: 15
+    rewards:
+      economy:
+        exp: 12
+        items:
+          - material: IRON_HELMET
+            amount: 1
+      fallback:
+        exp: 18
+        items:
+          - material: IRON_HELMET
+            amount: 1
+    next: gold_rush
+  gold_rush:
+    name: "&6淘金热"
+    description:
+      - "&7采集 &b16 &7个金矿石"
+    icon: "GOLD_ORE"
+    type: mine
+    block: GOLD_ORE
+    amount: 16
+    rewards:
+      economy:
+        exp: 14
+      fallback:
+        exp: 20
+    next: creeper_hunter
+  creeper_hunter:
+    name: "&6苦力怕猎人"
+    description:
+      - "&7消灭 &c20 &7只苦力怕"
+    icon: "GUNPOWDER"
+    type: kill
+    mob: CREEPER
+    amount: 20
+    rewards:
+      economy:
+        money: 15
+        exp: 15
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 1
+      fallback:
+        exp: 22
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 1
+    next: full_iron
+  full_iron:
+    name: "&6铁装齐全"
+    description:
+      - "&7采集 &b24 &7个铁矿石（补齐装备）"
+    icon: "ANVIL"
+    type: mine
+    block: IRON_ORE
+    amount: 24
+    rewards:
+      economy:
+        exp: 15
+        items:
+          - material: IRON_SWORD
+            amount: 1
+      fallback:
+        exp: 22
+        items:
+          - material: IRON_SWORD
+            amount: 1
+    next: guardian_night
+  guardian_night:
+    name: "&6暗夜守卫"
+    description:
+      - "&7消灭 &c30 &7只僵尸，证明实力"
+    icon: "SHIELD"
+    type: kill
+    mob: ZOMBIE
+    amount: 30
+    rewards:
+      economy:
+        money: 15
+        exp: 18
+        items:
+          - material: GOLDEN_APPLE
+            amount: 2
+      fallback:
+        exp: 28
+        items:
+          - material: GOLDEN_APPLE
+            amount: 2
+    next: witch_hunt
+  # ========== 第三章「钻光初现」（金币45 · 散钻4） ==========
+  witch_hunt:
+    name: "&5女巫猎人"
+    description:
+      - "&7消灭 &d8 &7只女巫"
+    icon: "GLASS_BOTTLE"
+    type: kill
+    mob: WITCH
+    amount: 8
+    rewards:
+      economy:
+        exp: 15
+      fallback:
+        exp: 22
+    next: deep_diamonds
+  deep_diamonds:
+    name: "&5钻光初现"
+    description:
+      - "&7采集 &b8 &7颗钻石"
+    icon: "DIAMOND"
+    type: mine
+    block: DIAMOND_ORE
+    amount: 8
+    rewards:
+      economy:
+        exp: 18
+        items:
+          - material: DIAMOND
+            amount: 2
+      fallback:
+        exp: 28
+        items:
+          - material: DIAMOND
+            amount: 2
+    next: redstone_engineer
+  redstone_engineer:
+    name: "&5红石工程师"
+    description:
+      - "&7采集 &b32 &7个红石粉矿石"
+    icon: "REDSTONE"
+    type: mine
+    block: REDSTONE_ORE
+    amount: 32
+    rewards:
+      economy:
+        exp: 15
+      fallback:
+        exp: 22
+    next: skeleton_archer
+  skeleton_archer:
+    name: "&5弓手对决"
+    description:
+      - "&7消灭 &d20 &7只骷髅"
+    icon: "ARROW"
+    type: kill
+    mob: SKELETON
+    amount: 20
+    rewards:
+      economy:
+        exp: 16
+        items:
+          - material: BOW
+            amount: 1
+      fallback:
+        exp: 25
+        items:
+          - material: BOW
+            amount: 1
+    next: obsidian_gate
+  obsidian_gate:
+    name: "&5黑曜之门"
+    description:
+      - "&7采集 &b8 &7块黑曜石"
+    icon: "OBSIDIAN"
+    type: mine
+    block: OBSIDIAN
+    amount: 8
+    rewards:
+      economy:
+        exp: 16
+      fallback:
+        exp: 25
+    next: lava_swimmer
+  lava_swimmer:
+    name: "&5岩浆泳者"
+    description:
+      - "&7采集 &b16 &7个金矿石（做金苹果抗火）"
+    icon: "GOLD_INGOT"
+    type: mine
+    block: GOLD_ORE
+    amount: 16
+    rewards:
+      economy:
+        exp: 15
+      fallback:
+        exp: 25
+    next: spider_raid
+  spider_raid:
+    name: "&5蛛巢突袭"
+    description:
+      - "&7消灭 &d20 &7只洞穴蜘蛛"
+    icon: "STRING"
+    type: kill
+    mob: CAVE_SPIDER
+    amount: 20
+    rewards:
+      economy:
+        exp: 16
+      fallback:
+        exp: 25
+    next: diamond_hoarder
+  diamond_hoarder:
+    name: "&5钻石收藏家"
+    description:
+      - "&7累计采集 &b16 &7颗钻石"
+    icon: "DIAMOND_BLOCK"
+    type: mine
+    block: DIAMOND_ORE
+    amount: 16
+    rewards:
+      economy:
+        exp: 18
+        items:
+          - material: DIAMOND
+            amount: 2
+      fallback:
+        exp: 28
+        items:
+          - material: DIAMOND
+            amount: 2
+    next: wither_skeleton_scout
+  wither_skeleton_scout:
+    name: "&c凋灵斥候"
+    description:
+      - "&7消灭 &c10 &7只凋灵骷髅（下界初探）"
+    icon: "BONE"
+    type: kill
+    mob: WITHER_SKELETON
+    amount: 10
+    rewards:
+      economy:
+        money: 25
+        exp: 20
+      fallback:
+        exp: 30
+    next: nether_guardian
+  nether_guardian:
+    name: "&c下界守卫"
+    description:
+      - "&7消灭 &c25 &7只下界怪物（野猪兽/僵尸猪灵）"
+    icon: "GOLDEN_SWORD"
+    type: kill
+    mob: ZOMBIFIED_PIGLIN
+    amount: 25
+    rewards:
+      economy:
+        money: 20
+        exp: 22
+        items:
+          - material: GOLDEN_APPLE
+            amount: 2
+      fallback:
+        exp: 35
+        items:
+          - material: GOLDEN_APPLE
+            amount: 2
+    next: missing_helmet
+  # ========== 第四章「钻石时代」（金币60+券2 · 钻石头盔+盾） ==========
+  missing_helmet:
+    name: "&b最后一块拼图"
+    description:
+      - "&7消灭 &b30 &7只骷髅（刷素材攒钻石头盔）"
+    icon: "DIAMOND_HELMET"
+    type: kill
+    mob: SKELETON
+    amount: 30
+    rewards:
+      economy:
+        exp: 20
+        items:
+          - material: DIAMOND_HELMET
+            amount: 1
+      fallback:
+        exp: 30
+        items:
+          - material: DIAMOND_HELMET
+            amount: 1
+    next: shield_bearer
+  shield_bearer:
+    name: "&b持盾武士"
+    description:
+      - "&7采集 &b24 &7个铁矿石（合成盾牌用）"
+    icon: "SHIELD"
+    type: mine
+    block: IRON_ORE
+    amount: 24
+    rewards:
+      economy:
+        exp: 18
+        items:
+          - material: SHIELD
+            amount: 1
+      fallback:
+        exp: 28
+        items:
+          - material: SHIELD
+            amount: 1
+    next: blaze_rod_venture
+  blaze_rod_venture:
+    name: "&c烈焰远征"
+    description:
+      - "&7消灭 &c15 &7只烈焰人"
+    icon: "BLAZE_ROD"
+    type: kill
+    mob: BLAZE
+    amount: 15
+    rewards:
+      economy:
+        exp: 22
+      fallback:
+        exp: 33
+    next: ghast_hunter
+  ghast_hunter:
+    name: "&c恶魂猎手"
+    description:
+      - "&7消灭 &c10 &7只恶魂"
+    icon: "GHAST_TEAR"
+    type: kill
+    mob: GHAST
+    amount: 10
+    rewards:
+      economy:
+        exp: 22
+      fallback:
+        exp: 33
+    next: enderman_cull
+  enderman_cull:
+    name: "&c末影清算"
+    description:
+      - "&7消灭 &c15 &7只末影人"
+    icon: "ENDER_PEARL"
+    type: kill
+    mob: ENDERMAN
+    amount: 15
+    rewards:
+      economy:
+        exp: 24
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 1
+      fallback:
+        exp: 36
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 1
+    next: diamond_tycoon
+  diamond_tycoon:
+    name: "&b钻石大亨"
+    description:
+      - "&7累计采集 &b24 &7颗钻石"
+    icon: "DIAMOND_BLOCK"
+    type: mine
+    block: DIAMOND_ORE
+    amount: 24
+    rewards:
+      economy:
+        exp: 24
+        items:
+          - material: DIAMOND_BLOCK
+            amount: 1
+      fallback:
+        exp: 36
+        items:
+          - material: DIAMOND_BLOCK
+            amount: 1
+    next: enchanted_forge
+  enchanted_forge:
+    name: "&b附魔工坊"
+    description:
+      - "&7消灭 &b20 &7只女巫（收集附魔材料）"
+    icon: "ENCHANTING_TABLE"
+    type: kill
+    mob: WITCH
+    amount: 20
+    rewards:
+      economy:
+        exp: 22
+      fallback:
+        exp: 33
+    next: end_venture
+  end_venture:
+    name: "&b末地前夕"
+    description:
+      - "&7消灭 &c20 &7只潜影贝（末地城探险）"
+    icon: "SHULKER_SHELL"
+    type: kill
+    mob: SHULKER
+    amount: 20
+    rewards:
+      economy:
+        exp: 23
+      fallback:
+        exp: 34
+    next: fortress_clear
+  fortress_clear:
+    name: "&c要塞清扫"
+    description:
+      - "&7消灭 &c25 &7只下界怪物（野猪兽群）"
+    icon: "GOLDEN_SWORD"
+    type: kill
+    mob: ZOMBIFIED_PIGLIN
+    amount: 25
+    rewards:
+      economy:
+        money: 30
+        exp: 24
+      fallback:
+        exp: 36
+    next: diamond_era_end
+  diamond_era_end:
+    name: "&c钻石时代·终章"
+    description:
+      - "&7消灭 &c35 &7只任意怪物，告别钻石时代"
+    icon: "DIAMOND_SWORD"
+    type: kill
+    mob: ZOMBIE
+    amount: 35
+    rewards:
+      economy:
+        money: 30
+        points: 2
+        exp: 26
+        items:
+          - material: GOLDEN_APPLE
+            amount: 3
+      fallback:
+        exp: 40
+        items:
+          - material: GOLDEN_APPLE
+            amount: 3
+    next: final_assembly
+  # ========== 第五章「终局之战」（金币80+券4 · 图腾+合金剑锋利2唯一） ==========
+  final_assembly:
+    name: "&d终局集结"
+    description:
+      - "&7消灭 &c40 &7只骷髅（最后的练兵）"
+    icon: "ARROW"
+    type: kill
+    mob: SKELETON
+    amount: 40
+    rewards:
+      economy:
+        exp: 28
+      fallback:
+        exp: 42
+    next: wither_army
+  wither_army:
+    name: "&d凋灵大军"
+    description:
+      - "&7消灭 &c20 &7只凋灵骷髅"
+    icon: "WITHER_SKELETON_SKULL"
+    type: kill
+    mob: WITHER_SKELETON
+    amount: 20
+    rewards:
+      economy:
+        exp: 28
+      fallback:
+        exp: 42
+    next: guardian_of_deep
+  guardian_of_deep:
+    name: "&d深海守卫者"
+    description:
+      - "&7消灭 &c10 &7只守卫者"
+    icon: "PRISMARINE_SHARD"
+    type: kill
+    mob: GUARDIAN
+    amount: 10
+    rewards:
+      economy:
+        exp: 30
+      fallback:
+        exp: 45
+    next: elder_guardian
+  elder_guardian:
+    name: "&d远古守卫者"
+    description:
+      - "&7消灭 &c3 &7只远古守卫者（海底神殿精英）"
+    icon: "SPONGE"
+    type: kill
+    mob: ELDER_GUARDIAN
+    amount: 3
+    rewards:
+      economy:
+        exp: 32
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 2
+      fallback:
+        exp: 48
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 2
+    next: totem_of_undying
+  totem_of_undying:
+    name: "&d不死图腾"
+    description:
+      - "&7消灭 &c20 &7只恶魂（下界空战换取图腾）"
+    icon: "TOTEM_OF_UNDYING"
+    type: kill
+    mob: GHAST
+    amount: 20
+    rewards:
+      economy:
+        exp: 30
+        items:
+          - material: TOTEM_OF_UNDYING
+            amount: 1
+      fallback:
+        exp: 45
+        items:
+          - material: TOTEM_OF_UNDYING
+            amount: 1
+    next: nether_fortress
+  nether_fortress:
+    name: "&c下界要塞"
+    description:
+      - "&7消灭 &c30 &7只下界怪物（要塞深处）"
+    icon: "NETHER_BRICK"
+    type: kill
+    mob: ZOMBIFIED_PIGLIN
+    amount: 30
+    rewards:
+      economy:
+        money: 25
+        exp: 32
+      fallback:
+        exp: 48
+    next: ancient_debris_hunt
+  ancient_debris_hunt:
+    name: "&d远古残骸"
+    description:
+      - "&7累计采集 &b8 &7块远古残骸（亲手打造终局装备）"
+    icon: "ANCIENT_DEBRIS"
+    type: mine
+    block: ANCIENT_DEBRIS
+    amount: 8
+    rewards:
+      economy:
+        exp: 35
+      fallback:
+        exp: 52
+    next: ender_dragon_prep
+  ender_dragon_prep:
+    name: "&d龙之准备"
+    description:
+      - "&7消灭 &c25 &7只末影人（收集末影珍珠）"
+    icon: "ENDER_EYE"
+    type: kill
+    mob: ENDERMAN
+    amount: 25
+    rewards:
+      economy:
+        exp: 34
+        items:
+          - material: GOLDEN_APPLE
+            amount: 3
+      fallback:
+        exp: 50
+        items:
+          - material: GOLDEN_APPLE
+            amount: 3
+    next: last_stand
+  last_stand:
+    name: "&c最后一战·前夜"
+    description:
+      - "&7消灭 &c50 &7只任意怪物（决战前整军）"
+    icon: "DIAMOND_SWORD"
+    type: kill
+    mob: ZOMBIE
+    amount: 50
+    rewards:
+      economy:
+        money: 25
+        exp: 36
+      fallback:
+        exp: 55
+    next: epic_finale
+  epic_finale:
+    name: "&6&l勇者的加冕"
+    description:
+      - "&7消灭 &c40 &7只凋灵骷髅"
+      - "&d完成整条「勇者成长之路」主线任务链"
+    icon: "NETHERITE_SWORD"
+    type: kill
+    mob: WITHER_SKELETON
+    amount: 40
+    rewards:
+      economy:
+        money: 30
+        points: 4
+        exp: 40
+        items:
+          - material: TOTEM_OF_UNDYING
+            amount: 1
+          - material: ENCHANTED_GOLDEN_APPLE
+            amount: 1
+        commands:
+          - "give {player} minecraft:netherite_sword 1 0 {Enchantments:[{id:minecraft:sharpness,lvl:2}]}"
+      fallback:
+        exp: 60
+        items:
+          - material: TOTEM_OF_UNDYING
+            amount: 1
+          - material: ENCHANTED_GOLDEN_APPLE
+            amount: 1
+        commands:
+          - "give {player} minecraft:netherite_sword 1 0 {Enchantments:[{id:minecraft:sharpness,lvl:2}]}"
+    next: ""
