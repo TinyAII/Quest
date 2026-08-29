@@ -1,0 +1,169 @@
+# Quest 任务定义 · 主线第四章（续）
+# ⚠️ 第四章段落文件，部署时追加到主 quests.yml 的 chain: 段之后
+# 第四章「钻石时代」（10 环）
+# 定位：钻石全盛期（第一章尾巴 → 下界合金前夕）
+# 金币 60（=第三章45×1.33，曲线平缓段）；点券 2（首次登场，收官环）
+# 物品主题：钻石头盔（补齐第三章缺的那件→集齐钻石套）+ 盾 + 附魔武器 + 钻石块收藏
+# ⚠️ 不发下界合金任何材料（留终章）；不发下界合金剑·锋利2（终章唯一毕业纪念）
+# 硬仗怪：烈焰人/恶魂/末影人（下界+末地前夕战力）
+
+chain4:
+  missing_helmet:
+    name: "&b最后一块拼图"
+    description:
+      - "&7消灭 &b30 &7只骷髅（刷素材攒钻石头盔）"
+    icon: "DIAMOND_HELMET"
+    type: kill
+    mob: SKELETON
+    amount: 30
+    rewards:
+      economy:
+        exp: 20
+        items:
+          - material: DIAMOND_HELMET
+            amount: 1
+      fallback:
+        exp: 30
+        items:
+          - material: DIAMOND_HELMET
+            amount: 1
+    next: shield_bearer
+  shield_bearer:
+    name: "&b持盾武士"
+    description:
+      - "&7采集 &b24 &7个铁矿石（合成盾牌用）"
+    icon: "SHIELD"
+    type: mine
+    block: IRON_ORE
+    amount: 24
+    rewards:
+      economy:
+        exp: 18
+        items:
+          - material: SHIELD
+            amount: 1
+      fallback:
+        exp: 28
+        items:
+          - material: SHIELD
+            amount: 1
+    next: blaze_rod_venture
+  blaze_rod_venture:
+    name: "&c烈焰远征"
+    description:
+      - "&7消灭 &c15 &7只烈焰人"
+    icon: "BLAZE_ROD"
+    type: kill
+    mob: BLAZE
+    amount: 15
+    rewards:
+      economy:
+        exp: 22
+      fallback:
+        exp: 33
+    next: ghast_hunter
+  ghast_hunter:
+    name: "&c恶魂猎手"
+    description:
+      - "&7消灭 &c10 &7只恶魂"
+    icon: "GHAST_TEAR"
+    type: kill
+    mob: GHAST
+    amount: 10
+    rewards:
+      economy:
+        exp: 22
+      fallback:
+        exp: 33
+    next: enderman_cull
+  enderman_cull:
+    name: "&c末影清算"
+    description:
+      - "&7消灭 &c15 &7只末影人"
+    icon: "ENDER_PEARL"
+    type: kill
+    mob: ENDERMAN
+    amount: 15
+    rewards:
+      economy:
+        exp: 24
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 1
+      fallback:
+        exp: 36
+        items:
+          - material: ENCHANTED_BOOK
+            amount: 1
+    next: diamond_tycoon
+  diamond_tycoon:
+    name: "&b钻石大亨"
+    description:
+      - "&7累计采集 &b24 &7颗钻石"
+    icon: "DIAMOND_BLOCK"
+    type: mine
+    block: DIAMOND_ORE
+    amount: 24
+    rewards:
+      economy:
+        exp: 24
+        items:
+          - material: DIAMOND_BLOCK
+            amount: 1
+      fallback:
+        exp: 36
+        items:
+          - material: DIAMOND_BLOCK
+            amount: 1
+    next: enchanted_forge
+  enchanted_forge:
+    name: "&b附魔工坊"
+    description:
+      - "&7消灭 &b20 &7只女巫（收集附魔材料）"
+    icon: "ENCHANTING_TABLE"
+    type: kill
+    mob: WITCH
+    amount: 20
+    rewards:
+      economy:
+        exp: 22
+      fallback:
+        exp: 33
+    next: fortress_clear
+  fortress_clear:
+    name: "&c要塞清扫"
+    description:
+      - "&7消灭 &c25 &7只下界怪物（野猪兽群）"
+    icon: "GOLDEN_SWORD"
+    type: kill
+    mob: ZOMBIFIED_PIGLIN
+    amount: 25
+    rewards:
+      economy:
+        money: 30
+        exp: 24
+      fallback:
+        exp: 36
+    next: diamond_era_end
+  diamond_era_end:
+    name: "&c钻石时代·终章"
+    description:
+      - "&7消灭 &c35 &7只任意怪物，告别钻石时代"
+    icon: "DIAMOND_SWORD"
+    type: kill
+    mob: ZOMBIE
+    amount: 35
+    rewards:
+      economy:
+        money: 30
+        points: 2
+        exp: 26
+        items:
+          - material: GOLDEN_APPLE
+            amount: 3
+      fallback:
+        exp: 40
+        items:
+          - material: GOLDEN_APPLE
+            amount: 3
+    next: ""
